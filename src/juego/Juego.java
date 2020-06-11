@@ -1,6 +1,12 @@
 package juego;
 
 
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import entorno.Entorno;
 import entorno.InterfaceJuego;
 
@@ -11,12 +17,21 @@ public class Juego extends InterfaceJuego
 	
 	// Variables y métodos propios de cada grupo
 	// ...
+	Image fondo; 
 	
 	Juego()
 	{
 		// Inicializa el objeto entorno
 		this.entorno = new Entorno(this, "Super Elizabeth Sis - Grupo ... - v1", 800, 600);
+	   
+		
+		// cargamos fondo.
+		Background background = new Background();
+		fondo = background.cargarImagen("imagenes/fondos/fondo1.png");
+		
 	
+		 
+		
 		// Inicializar lo que haga falta para el juego
 		// ...
 
@@ -32,10 +47,12 @@ public class Juego extends InterfaceJuego
 	 */
 	public void tick()
 	{
+		
+	
 		// Procesamiento de un instante de tiempo
 		// ...
 		
-
+		entorno.dibujarImagen(fondo, 400, 300, 0, 1.1);
 	}
 	
 
